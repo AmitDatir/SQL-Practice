@@ -13,7 +13,7 @@ CREATE TABLE table_name (        --name of the column instead of table_name
      student_id INT PRIMARY KEY,   
      name VARCHAR(20),
      major VARCHAR(20)
-);                --All SQL keywords are written in CAPS to easy identification
+);                --All SQL keywords are written in CAPS for easy identification
 
 --To add primary key later:
 CREATE TABLE table_name (
