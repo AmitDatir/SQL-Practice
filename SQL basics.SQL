@@ -9,7 +9,7 @@ DATE              -- 'YYYY-MM-DD'
 TIMESTAMP         -- 'YYYY-MM-DD HH:MM:SS' 
 
 --Create table:      --creation of schema
-CREATE TABLE table_name (        --name of the column instead of table_name   
+CREATE TABLE table_name (        --name of the table instead of table_name   
      student_id INT PRIMARY KEY,   
      name VARCHAR(20),
      major VARCHAR(20)
