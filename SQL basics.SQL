@@ -4,7 +4,6 @@
 INT               -- Whole numbers
 DECIMAL(x,y)      -- Decimal numbers(to store exact number, x denotes before decimal digits & y for after decimal digits)
 VARCHAR(x)        -- String of text with length x
-CHAR(x)           -- to add character
 BLOB              -- Binary large data, stores large data
 DATE              -- 'YYYY-MM-DD'
 TIMESTAMP         -- 'YYYY-MM-DD HH:MM:SS' 
