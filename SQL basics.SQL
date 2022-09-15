@@ -164,3 +164,13 @@ FROM table_name
 ORDER BY column1 DESC
 LIMIT x;         -- x: any number of rows we want to show
  
+
+--Filter:(WHERE)
+SELECT *           -- or column3, column4
+FROM table_name
+WHERE column1 = value1 OR column2 = value2;   -- or AND column2 = value2
+
+--multiple values from 1 column:
+SELECT *
+FROM table_name
+WHERE column1 IN (value1, value2, value3);
