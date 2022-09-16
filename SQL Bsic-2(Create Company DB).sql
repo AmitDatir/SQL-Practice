@@ -57,7 +57,7 @@ CREATE TABLE branch_supplier (
 -- -----------------------------------------------------------------------------
 
 -- Corporate
-INSERT INTO employee VALUES(100, 'David', 'Wallace', '1967-11-17', 'M', 250000, NULL, NULL);
+INSERT INTO employee VALUES(100, 'David', 'Wallace', '1967-11-17', 'M', 250000, NULL, NULL);        --branch_id is not known yet, hence we are inserting Null
 
 INSERT INTO branch VALUES(1, 'Corporate', 100, '2006-02-09');
 
