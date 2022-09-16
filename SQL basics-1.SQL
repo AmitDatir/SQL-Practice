@@ -1,4 +1,5 @@
 --BAISC SQL QUERIES:
+--SQL basics playlist: https://www.mikedane.com/databases/sql/
 
 --Most used Data types in SQL:
 INT               -- Whole numbers
