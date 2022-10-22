@@ -1,4 +1,4 @@
---BAISC SQL QUERIES:
+--BAISC SQL QUERIES-1:
 --SQL basics playlist: https://www.mikedane.com/databases/sql/
 
 --Most used Data types in SQL:
@@ -11,14 +11,14 @@ TIMESTAMP         -- 'YYYY-MM-DD HH:MM:SS'
 
 --Comparison Operator:
 =   :  equals
-<>  :  not equals
+<>  :  not equals  (!=)
 >   :  greater than
 <   :  less than
 >=  :  greater than or equal
 <=  :  less than or equal
 
 --Create table:      --creation of schema
-CREATE TABLE table_name (        --name of the column instead of table_name   
+CREATE TABLE table_name (        --name of the table instead of table_name   
      student_id INT PRIMARY KEY,   
      name VARCHAR(20),
      major VARCHAR(20)
@@ -39,10 +39,10 @@ DESCRIBE table_name;        --describes information of created table
 DROP TABLE table_name;
 
 --Addition of extra columns:
-ALTER TABLE table_name ADD gpa DECIMAL(3,2);   --name of column instead of gpa
+ALTER TABLE table_name ADD column_name DECIMAL(3,2);   --name of column instead of gpa
 
 --Delete unwanted column:
-ALTER TABLE table_name DROP COLUMN gpa;
+ALTER TABLE table_name DROP COLUMN column_name;
 
 
 
@@ -64,7 +64,7 @@ INSERT INTO table_name(student_id, name) VALUES(3, 'Claire');    --whenever we d
 
 --Constraints: 
 --To make column to have NOT NULL value & UNIQUE value:
-CREATE TEABLE table_name(
+CREATE TABLE table_name(
 	student_id INT,
 	name VARCHAR(20) NOT NULL,      --make column 'name' to not have NULL value
 	major VARCHAR(20) UNIQUE,       --every row for column will be UNIQUE, will get an error message for duplicate enteries
@@ -73,7 +73,7 @@ CREATE TEABLE table_name(
 --instad of NOT NULL, if we enter NULL >> we will have all values as NULL
 
 --To set DEFAULT value of any column:
-CREATE TEABLE table_name(
+CREATE TABLE table_name(
 	student_id INT,
 	name VARCHAR(20), 
 	major VARCHAR(20) DEFAULT 'undecided',     --if we do not insert any value for major, then undecided will be saved
@@ -81,10 +81,10 @@ CREATE TEABLE table_name(
 );
 
 --To AUTO INCREMENT any column values:
-CREATE TEABLE table_name(
+CREATE TABLE table_name(
 	student_id INT AUTO_INCREMENT,       --value of column student_id starts from 1 & goes on even if we don't insert it anywhere 
  	name VARCHAR(20), 
-	major VARCHAR(20) 
+	major VARCHAR(20), 
 	PRIMARY KEY(student_id)
 );
 
