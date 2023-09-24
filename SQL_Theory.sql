@@ -29,7 +29,7 @@ TCL(Transaction Control Language) : Start Transaction, commit, rollback
 
 
   
---Database:
+Database:
 --Create a new database:
 CREATE DATABASE db_name;
 
@@ -51,7 +51,7 @@ SHOW DATABASES;
 
 
 
---Table:
+Table:
 --Create a new table:
 CREATE TABLE table_name (       --create table schema
   column_name1 datatype constraint,
@@ -161,3 +161,98 @@ CREATE TABLE table_name (
   column_name3 datatype constraint,
   CONSTRAINT constraint_name CHECK (conditions)        --exp: CHECK(age >=18 AND/OR city="Delhi")
 );
+
+
+
+SELECT :
+--Use to select any data from the database
+-- Basic syntax:
+SELECT col1, col2 FROM table_name;
+
+-- To select all:
+SELECT * FROM table_name;
+
+-- To display unique values from the table column:
+SELECT DISTINCT col1 FROM table_name;
+
+
+
+
+WHERE clause:
+--To define some conditions
+-- Basic syntax:
+SELECT col1, col2 FROM table_name
+  WHERE conditions;               --exp.: WHERE marks > 80 OR city = "Mumbai";
+
+--Using operators in WHERE:
+Arithmatic Operator : + , - , * , / , %
+Comparison Operator : =(equal to), !=(not equal to), > , < , >= , <=
+Logical Operator : AND, OR, NOT, IN, BETWEEN, ALL, LIKE, ANY
+Bitwise Operator : &(Bitwise AND), |(Bitwise OR)
+
+
+  
+--Operators:
+AND 
+--to check both conditions to be true
+--Syntax:
+SELECT * FROM table_name WHERE condition1 AND condition2;
+
+OR 
+--to check for one of the conditions to be true
+--Syntax:
+SELECT * FROM table_name WHERE condition1 OR condition2;
+
+BETWEEN
+--to select between given range
+--Syntax:
+SELECT * FROM table_name WHERE column1 BETWEEN value1 AND value2;  --both values are inclusive
+
+IN
+--to select value that matches any value in list
+--Syntax:
+SELECT * FROM table_name WHERE column1 IN (value1, value2);
+
+NOT
+--to negate the given condition
+--Syntax:
+SELECT * FROM table_name WHERE column1 NOT IN (value1, value2);  --reverse the given condition
+
+
+
+LIMIT clause:
+--sets upper limit on number of (tuples) rows to be returned
+-- Basic syntax:
+SELECT * FROM table_name
+  WHERE conditions
+  LIMIT number;               --exp.: SELECT * FROM student LIMIT 3;
+
+
+
+ORDER BY clause: 
+--to sort in ascending(ASC) or descending order(DESC)
+-- Basic syntax:
+SELECT * FROM table_name
+  ORDER BY column1 ASC;               --exp.: SELECT * FROM student ORDER BY city ASC;
+-- by default, ascending sort is applied if not stated
+
+
+Aggregate functions:
+--aggregate functions perform a calculation on a set of values and return a single value
+COUNT() : --to get count of entries in a column
+MAX() : --to get max value from the column
+MIN() : --to get min value from the column
+SUM() : --to get sum of all values from the column
+AVG() : --to get avg of all values from the column
+
+
+
+GROUP BY clause: 
+--groups rows that have the same values into summary rows.
+--It collects data from multiple records and groups the result by one or more column
+--Generally, we use GROUP BY clause with some aggregation function
+-- Basic syntax:
+SELECT column1, fun(column2) FROM table_name
+  GROUP BY column1;                           --exp.: SELECT city, count(name) FROM student GROUP BY city;
+
+--we need to use GROUP BY clause on same number of columns as we used in SELECT clause without aggregate function
