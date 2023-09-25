@@ -1,3 +1,7 @@
+--SAFE mode in MySQL : prevents us from making unwanted changes, it is ON by default
+--To turn of SAFE mode :
+SET SQL_SAFE_UPDATES=0;   --to turn ON, set value to 1
+
 --SQL Datatypes:
 CHAR(x)  --Stores String(0-255), stores character with Fixed memory allocation
 VARCHAR(x)  --Stores String(0-255), stores character only upto given length of string
@@ -256,3 +260,42 @@ SELECT column1, fun(column2) FROM table_name
   GROUP BY column1;                           --exp.: SELECT city, count(name) FROM student GROUP BY city;
 
 --we need to use GROUP BY clause on same number of columns as we used in SELECT clause without aggregate function
+
+
+
+HAVING clause: 
+--similar to WHERE clause i.e. applied some conditions on rows.
+--Used when we want to apply any condition after grouping. 
+-- Basic syntax:
+SELECT column1, fun(column2) FROM table_name
+  GROUP BY column1
+  HAVING conditions;                           --exp.: SELECT count(name), city FROM student GROUP BY city HAVING max(marks) > 90;
+--WHERE applies conditions on rows & HAVING applies conditions on groups
+
+
+
+--General order of Commands:
+  
+SELECT column(s)
+FROM table_name
+WHERE condition
+GROUP BY column(s)
+HAVING condition
+ORDER BY column(s) ASC;
+
+
+
+
+--TABLE related queries:
+UPDATE
+--to update existing row
+--Syntax:
+UPDATE table_name
+SET col1 = val1, col2 = val2
+WHERE condition;                   --exp.: UPDATE student SET grade = "O" WHERE grade = "A";
+
+DELETE
+--to delete existing row
+--Syntax:
+DELETE from table_name
+WHERE condition;                   --exp.: DELETE FROM student WHERE marks < 33;
