@@ -141,8 +141,12 @@ CREATE TABLE table_name1 (
   column_name1 datatype PRIMARY KEY,
   column_name2 datatype constraint,
   column_name3 datatype constraint,
-  FOREIGN KEY (column_name3) references table_name2 (column_name4)           --column_name4 will be a primary key of table_name2
+  FOREIGN KEY (column_name3) REFERENCES table_name2 (column_name4)           --column_name4 will be a primary key of table_name2
 );
+--Use Database > Reverse Engineer option inside MySQL to visualize to visualize parent-child table relation with use of foreign key
+--It displays EER diagram of tables created and displayed relation if any created using foreign key (Enhanced Entity-Relationship (EER))
+--Parent table: table in which column of primary key is used as foreign key in other table
+--Child table: table in which foreign key is defined
 
 DEFAULT
 -- sets the default value of a column
@@ -299,3 +303,62 @@ DELETE
 --Syntax:
 DELETE from table_name
 WHERE condition;                   --exp.: DELETE FROM student WHERE marks < 33;
+
+TRUNCATE
+--to delete table's data
+--Syntax:
+TRUNCATE TABLE table_name;
+--DROP command delete the complete table where as TRUNCATE delete the data inside the table and not the table itself
+
+
+ALTER
+--to change schema(columns, datatypes, constraints)
+
+--ADD column
+ALTER TABLE table_name
+ADD COLUMN column_name datatype constraint;       --exp.: ALTER TABLE student ADD COLUMN age INT NOT NULL DEFAULT 19;
+
+--DROP column
+ALTER TABLE table_name
+DROP COLUMN column_name;                         --exp.: ALTER TABLE student DROP COLUMN age;
+
+--RENAME table
+ALTER TABLE table_name
+RENAME TO new_table_name;                        --exp.: ALTER TABLE student RENAME TO stu;
+
+--CHANGE column(rename)
+ALTER TABLE table_name
+CHANGE COLUMN old_column_name new_column_name new_datatype new_constraint;         --exp.: ALTER TABLE student CHANGE COLUMN age stu_age INT;
+
+--MODIFY column(modify datatype, constraint)
+ALTER TABLE table_name
+MODIFY COLUMN column_name new_datatype new_constraint;                       --exp.: ALTER TABLE student MODIFY COLUMN age VARCHAR(2);
+
+
+
+
+
+--Cascading for FOREIGN KEY:
+ON DELETE CASCADE
+--When we create foreign key using this option, it deletes the referencing rows in child table when the referenced row is deleted in the parent table which has a primary key.
+
+ON UPDATE CASCADE
+--When we create foreign key using this option, the referencing rows are updated in the child table when the referenced row is updated in the parent table which has a primary key.
+
+-- Syntax:
+CREATE TABLE table_name1 (      
+  column_name1 datatype PRIMARY KEY,
+  column_name2 datatype constraint,
+  column_name3 datatype constraint,
+  FOREIGN KEY (column_name3) REFERENCES table_name2 (column_name4)          
+  ON DELETE CASCADE
+  ON UPDATE CASCADE
+);
+--Exp.: 
+CREATE TABLE student (      
+  id INT PRIMARY KEY,
+  courseID INT,
+  FOREIGN KEY (courseID) REFERENCES course (id)          
+  ON DELETE CASCADE
+  ON UPDATE CASCADE
+);
