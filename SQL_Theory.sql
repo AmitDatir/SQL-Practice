@@ -362,3 +362,9 @@ CREATE TABLE student (
   ON DELETE CASCADE
   ON UPDATE CASCADE
 );
+
+
+
+
+
+--Joins:
