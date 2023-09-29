@@ -106,7 +106,7 @@ FOREIGN KEY
 
 
 
---Constraints: (used to speify rules for data in a table)
+--Constraints: (used to specify rules for data in a table)
 NOT NULL
 -- columns can not have NULL values
   
@@ -143,7 +143,7 @@ CREATE TABLE table_name1 (
   column_name3 datatype constraint,
   FOREIGN KEY (column_name3) REFERENCES table_name2 (column_name4)           --column_name4 will be a primary key of table_name2
 );
---Use Database > Reverse Engineer option inside MySQL to visualize to visualize parent-child table relation with use of foreign key
+--Use Database > Reverse Engineer option inside MySQL to visualize parent-child table relation with use of foreign key
 --It displays EER diagram of tables created and displayed relation if any created using foreign key (Enhanced Entity-Relationship (EER))
 --Parent table: table in which column of primary key is used as foreign key in other table
 --Child table: table in which foreign key is defined
