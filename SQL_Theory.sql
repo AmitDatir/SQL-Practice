@@ -366,5 +366,107 @@ CREATE TABLE student (
 
 
 
+--Alias: We can use AS keyword to set an alias to particular table/column
 
---Joins:
+
+
+
+Joins in SQL
+--JOIN is used to combine rows from two or more tables, based on a related column between them
+--Types of Joins:
+INNER JOIN -- only common data available in both tables is shown
+OUTER JOIN -- common data + data of one/more table is displayed 
+  LEFT JOIN -- gives data of left table+ common data
+  RIGHT JOIN -- gives data of right table+ common data
+  FULL JOIN -- gives complete data of both the tables
+
+INNER JOIN
+--returns records that have matching values in both tables
+--Syntax:
+SELECT column(s)
+FROM tableA                        --we can either take tableA or tableB for inner join as it will return only common data
+INNER JOIN tableB
+ON tableA.col_name = tableB.col_name;           --exp.: SELECT * FROM student as s INNER JOIN course as c ON s.student_id = c.student_id;
+
+LEFT JOIN
+--returns all records from LEFT table and the matched records from the RIGHT table
+--Syntax:
+SELECT column(s)
+FROM tableA                        
+LEFT JOIN tableB
+ON tableA.col_name = tableB.col_name;           --exp.: SELECT * FROM student as s LEFT JOIN course as c ON s.student_id = c.student_id;
+
+RIGHT JOIN
+--returns all records from RIGHT table and the matched records from the LEFT table
+--Syntax:
+SELECT column(s)
+FROM tableA                        
+RIGHT JOIN tableB
+ON tableA.col_name = tableB.col_name;           --exp.: SELECT * FROM student as s RIGHT JOIN course as c ON s.student_id = c.student_id;
+
+FULL JOIN
+--returns all records when there is a match in either left or right table
+--no FULL JOIN command in MySQL, we can do it in ORACLE. We use UNION command to execute FULL JOIN
+--Syntax in MySQL:
+SELECT *
+FROM tableA                        
+LEFT JOIN tableB
+ON tableA.col_name = tableB.col_name;
+UNION                                 --it gives unique values between two tables,  does not give duplicate values
+SELECT *
+FROM tableA 
+RIGHT JOIN tableB
+ON tableA.col_name = tableB.col_name;           --exp.: SELECT * FROM student as s LEFT JOIN course as c ON s.student_id = c.student_id UNION SELECT * FROM student as s RIGHT JOIN course as c ON s.student_id = c.student_id;
+
+LEFT EXCLUSIVE JOIN
+--returns all records from LEFT table where no records match from the RIGHT table
+--Syntax:
+SELECT column(s)
+FROM tableA                        
+LEFT JOIN tableB
+ON tableA.col_name = tableB.col_name
+WHERE tableB.col_name IS NULL;           --exp.: SELECT * FROM student as s LEFT JOIN course as c ON s.student_id = c.student_id WHERE c.student_id IS NULL;
+
+RIGHT EXCLUSIVE JOIN
+--returns all records from RIGHT table where no records match from the LEFT table
+--Syntax:
+SELECT column(s)
+FROM tableA                        
+RIGHT JOIN tableB
+ON tableA.col_name = tableB.col_name
+WHERE tableA.col_name IS NULL;           --exp.: SELECT * FROM student as s RIGHT JOIN course as c ON s.student_id = c.student_id WHERE s.student_id IS NULL;
+
+FULL EXCLUSIVE JOIN
+-- returns all records from LEFT & RIGHT table where no records match from the both tables
+--Syntax: ???
+
+SELF JOIN
+--it is a regular join but table is joined with itself.
+--Syntax:
+SELECT column(s)
+FROM table as a                       
+JOIN table as b
+ON a.col_name = b.col_name;           --exp.: SELECT a.name as manager_name, b.name FROM employee as a JOIN employee as b ON a.id = b.manager_id;
+
+
+
+
+UNION
+--It is used to combine the result-set of two or more SELECT statements
+--Gives UNIQUE records.
+-- To use it: 1. every SELECT statement should have same no. of columns   2. columns must have similar data type  3. columns in every SELECT statement should be same order
+--Syntax:
+SELECT column(s) FROM tableA
+UNION
+SELECT column(s) FROM tableB
+
+UNION ALL
+--It is used to combine the result-set of two or more SELECT statements & gives duplicate values as well
+--Syntax:
+SELECT column(s) FROM tableA
+UNION ALL
+SELECT column(s) FROM tableB
+
+
+
+--SQL sub-queries:
