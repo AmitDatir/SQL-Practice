@@ -470,3 +470,11 @@ SELECT column(s) FROM tableB
 
 
 --SQL sub-queries:
+-- A subquery or Inner query or a Nested query is a query within another SQL query.
+-- It involves 2 SELECT statements.
+-- We can write sub-queries inside SELECT, FROM or WHERE cluase.
+-- Syntax:
+SELECT column(s)
+FROM table_name
+WHERE col_name operation
+(subquery);
