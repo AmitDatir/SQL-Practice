@@ -469,7 +469,8 @@ SELECT column(s) FROM tableB
 
 
 
---SQL sub-queries:
+  
+SQL sub-queries:
 -- A subquery or Inner query or a Nested query is a query within another SQL query.
 -- It involves 2 SELECT statements.
 -- We can write sub-queries inside SELECT, FROM or WHERE cluase.
@@ -477,4 +478,20 @@ SELECT column(s) FROM tableB
 SELECT column(s)
 FROM table_name
 WHERE col_name operation
-(subquery);
+(subquery);             --exp.: SELECT name FROM student WHERE rollno IN(SELECT rollno FROM student WHERE rollno % 2 = 0);
+
+
+
+
+MySQL Views:
+-- A view is a virtual table based on the result-set of an SQL statement.
+-- A view always shows up-to-date data. The database engine recreates the view, every time a user queries it.
+-- We can perform any operations on these views.
+--Syntax:
+CREATE VIEW view1 AS 
+SELECT rollno name FROM student;
+
+SELECT * FROM view1;
+
+--We can also drop these created virtual views.
+DROP VIEW view1;
