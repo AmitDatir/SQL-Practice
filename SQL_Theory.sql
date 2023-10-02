@@ -1,6 +1,6 @@
 --SAFE mode in MySQL : prevents us from making unwanted changes, it is ON by default
 --To turn of SAFE mode :
-SET SQL_SAFE_UPDATES=0;   --to turn ON, set value to 1
+SET SQL_SAFE_UPDATES = 0;   --to turn ON, set value to 1
 
 --SQL Datatypes:
 CHAR(x)  --Stores String(0-255), stores character with Fixed memory allocation
