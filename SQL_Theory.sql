@@ -6,7 +6,7 @@ SET SQL_SAFE_UPDATES = 0;   --to turn ON, set value to 1
 CHAR(x)  --Stores String(0-255), stores character with Fixed memory allocation
 VARCHAR(x)  --Stores String(0-255), stores character only upto given length of string
 BLOB(x)  --Stores large binary objects/large string(0-65535) 
-INT  --Stores integers(-2147 to 483648 || 2147 to 483647)
+INT  --Stores integers(-2147483648 to 2147483647)
 TINYINT  --Stores small integers(-128 TO 127)
 BIGINT  --Stores big integers(-9223372036854775808 to 9223372036854775807)
 BIT(x)  --Stores x-bit values, x value ranges from 1 to 64
