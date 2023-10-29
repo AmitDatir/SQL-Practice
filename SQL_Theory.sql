@@ -301,7 +301,7 @@ WHERE condition;                   --exp.: UPDATE student SET grade = "O" WHERE 
 DELETE
 --to delete existing row
 --Syntax:
-DELETE from table_name
+DELETE FROM table_name
 WHERE condition;                   --exp.: DELETE FROM student WHERE marks < 33;
 
 TRUNCATE
