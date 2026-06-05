@@ -236,6 +236,14 @@ SELECT * FROM table_name
   LIMIT number;               --exp.: SELECT * FROM student LIMIT 3;
 
 
+OFFSET clause:
+--skips number of (tuples) rows to be returned, used with LIMIT
+-- Basic syntax:
+SELECT * FROM table_name
+  WHERE conditions
+  LIMIT number OFFSET number2;               --exp.: SELECT * FROM student LIMIT 1 OFFSET 5;
+
+
 
 ORDER BY clause: 
 --to sort in ascending(ASC) or descending order(DESC)
