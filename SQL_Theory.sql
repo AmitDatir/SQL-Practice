@@ -475,6 +475,15 @@ JOIN table as b
 ON a.col_name = b.col_name;           --exp.: SELECT a.name as manager_name, b.name FROM employee as a JOIN employee as b ON a.id = b.manager_id;
 
 
+JOIN 3 tables in SQL:
+  --example:
+SELECT t1.column_name, t2.column_name, t3.column_name
+FROM table1 t1
+INNER JOIN table2 t2 ON t1.common_column = t2.common_column
+INNER JOIN table3 t3 ON t2.another_common_column = t3.another_common_column;
+
+
+
 
 
 UNION
