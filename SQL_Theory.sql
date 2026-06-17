@@ -215,6 +215,7 @@ BETWEEN
 --to select between given range
 --Syntax:
 SELECT * FROM table_name WHERE column1 BETWEEN value1 AND value2;  --both values are inclusive
+--select * from employees where salary not between 10000 and 12000;
 
 IN
 --to select value that matches any value in list
@@ -243,7 +244,7 @@ SELECT * FROM table_name
   WHERE conditions
   LIMIT number OFFSET number2;               --exp.: SELECT * FROM student LIMIT 1 OFFSET 5;
 
-
+--select * from employees limit 5, 10; ::- retrieves exactly 10 records from the employees table, skipping the first 5 records.(similar to: SELECT * FROM employees LIMIT 10 OFFSET 5;)
 
 ORDER BY clause: 
 --to sort in ascending(ASC) or descending order(DESC)
@@ -251,6 +252,16 @@ ORDER BY clause:
 SELECT * FROM table_name
   ORDER BY column1 ASC;               --exp.: SELECT * FROM student ORDER BY city ASC;
 -- by default, ascending sort is applied if not stated
+
+
+Pattern Matching (LIKE):
+Definition: Search for patterns in text columns using % (multiple chars) and _ (single char).
+Examples:
+select first_name from employees where first_name like 's%';
+select first_name from employees where first_name like'%s';
+select first_name from employees where first_name like '%s_';
+select first_name from employees where first_name like 'r__s%';
+select first_name from employees where first_name not like 's%';
 
 
 Aggregate functions:
@@ -343,6 +354,12 @@ CHANGE COLUMN old_column_name new_column_name new_datatype new_constraint;      
 ALTER TABLE table_name
 MODIFY COLUMN column_name new_datatype new_constraint;                       --exp.: ALTER TABLE student MODIFY COLUMN age VARCHAR(2);
 
+
+AUTO INCREMENT:
+--Automatically generates sequential numeric values for a column.
+create table student1(sno int(2) primary key auto_increment, sname
+varchar(15), marks int(3));
+alter table student1 auto_increment=100;  
 
 
 
@@ -504,3 +521,53 @@ SELECT * FROM view1;
 
 --We can also drop these created virtual views.
 DROP VIEW view1;
+
+
+INDEX:
+--Improves data retrieval speed.
+create index idx_employees on employees(first_name);
+drop index idx_employees on employees;
+
+
+TCL Commands (COMMIT & ROLLBACK):
+--Control transactions to ensure data integrity.
+set autocommit=0;
+insert into student values(1,'aaa','A');
+rollback; -- undo changes
+commit; -- save changes
+
+
+
+Built-in Functions:
+  --Definitions & Examples:
+  
+String Functions:
+select upper('aish');
+select lower('AISHU');
+select length('aishwarya');
+select trim(' aish ');
+select concat('aish','warya');
+select substr('aishwarya',1,4);
+
+Numeric Functions:
+select abs(-40);
+select sqrt(25);
+select power(5,2);
+select mod(10,3);
+select truncate(40.1234,2);
+select greatest(10,20,30);
+select least(10,20,30);
+
+Date Functions:
+select curdate();
+select current_time();
+select now();
+select year("2023-06-11");
+select monthname("2023-06-11");
+
+Aggregate Functions:
+select sum(salary) from employees;
+select min(salary) from employees;
+select max(salary) from employees;
+select avg(salary) from employees;
+select count(*) from employees;
